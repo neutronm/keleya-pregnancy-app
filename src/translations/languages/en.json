@@ -1,0 +1,29 @@
+{
+    "SIGN_UP":{
+        "ADD_YOUR_DETAILS": "Add your details below to set up an account",
+        "ENTER_PASSWORD": "Enter a password",
+        "IVE_READ_THE": "I've read the",
+        "PRIVACY_POLICY": "privacy policy",
+        "I_ACCEPT_THE": "I accept the",
+        "TERMS_AND_CONDITIONS": "terms & conditions",
+        "AND": "and",
+        "KELEYAS_ADVICE":"Keleya's advice",
+        "CREATE_ACCOUNT":"Create account"
+    },
+    "SIGN_IN":{
+        "WELCOME_BACK": "Welcome back!",
+        "FORGOTTEN_PASSWORD": "Have you forgotten your password?",
+        "LOGIN": "Log in"
+    },
+    "NAME":{
+        "ITS_GREAT_THAT_YOURE_HERE":"It's great that you're here! first things first, what should we call you?",
+        "YOUR_NAME":"Your Name",
+        "CONTINUE":"Continue"
+    },
+    "DUE_DATE":{
+        "WHEN_IS_YOUR_BABY_DUE": "When is your baby due"
+    },
+    "COMMON":{
+        "CONTINUE":"Continue"
+    }
+}
