@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {AppButton} from '../components/AppButton';
-import {AppTextInput} from '../components/AppTextInput';
+import { AppButton } from '../components/AppButton';
+import { AppTextInput } from '../components/AppTextInput';
 import {
   View,
   Text,
@@ -9,11 +9,10 @@ import {
   Platform,
   Keyboard,
 } from 'react-native';
-import {colorPalette, spacing, typography} from '../theme';
-import {HeaderImage} from '../components/HeaderImage';
+import { colorPalette, spacing, typography } from '../theme';
+import { HeaderImage } from '../components/HeaderImage';
 import { useTranslation } from 'react-i18next';
 import { images } from '../assets';
-import { useNavigation } from '@react-navigation/native';
 import { routes } from '../navigation/routes';
 import { SET_NAME } from '../redux/slices/userSlice';
 import { useAppDispatch } from '../redux/hooks';

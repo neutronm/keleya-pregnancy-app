@@ -1,49 +1,49 @@
 {
-    "INITIAL_SCREEN":{
-        "GET_STARTED": "Get started",
-        "OR_LOGIN": "Or login",
-        "FIRST_SLIDE_DESC":"For a fit and relaxed pregnancy",
-        "SECOND_SLIDE_DESC": "Log your symptoms and set up your coach to receive workouts for your pregnancy needs",
-        "THIRD_SLIDE_DESC": "Get ready for the new arrival with our digital birth preparation course reimbursed by many insurance companies"
-    },
-    "SIGN_UP":{
-        "ADD_YOUR_DETAILS": "Add your details below to set up an account",
-        "ENTER_PASSWORD": "Enter a password",
-        "IVE_READ_THE": "I've read the",
-        "PRIVACY_POLICY": "privacy policy",
-        "I_ACCEPT_THE": "I accept the",
-        "TERMS_AND_CONDITIONS": "terms & conditions",
-        "AND": "and",
-        "KELEYAS_ADVICE":"Keleya's advice",
-        "CREATE_ACCOUNT":"Create account",
-        "EMAIL_ERROR": "Not quite! Please try again with a valid email address",
-        "PASSWORD_ERROR":"Oops that doesn't work, try again or check out password requirements"
-    },
-    "SIGN_IN":{
-        "WELCOME_BACK": "Welcome back!",
-        "FORGOTTEN_PASSWORD": "Have you forgotten your password?",
-        "LOGIN": "Log in",
-        "EMAIL_ERROR": "Please enter a valid email address"
-    },
-    "NAME":{
-        "ITS_GREAT_THAT_YOURE_HERE":"It's great that you're here! first things first, what should we call you?",
-        "YOUR_NAME":"Your Name",
-        "CONTINUE":"Continue"
-    },
-    "DUE_DATE":{
-        "WHEN_IS_YOUR_BABY_DUE": "When is your baby due"
-    },
-    "WORKOUT":{
-        "HOW_MANY_TIMES_A_WEEK_WANT_TO_BE_ACTIVE": "How many times a week do you want to be active?",
-        "TIMES_A_WEEK": "times a week",
-        "ONCE_A_WEEK": "Once a week"
-    },
-    "SUCCESS_SCREEN":{
-        "GET_NOTIFICATION_TO_BOOST": "Get notifications to boost your motivation",
-        "ALLOW_NOTIFICATIONS": "Allow notifications"
-    },
-    "COMMON":{
-        "CONTINUE":"Continue",
-        "SKIP": "Skip"
-    }
+  "INITIAL_SCREEN": {
+    "GET_STARTED": "Get started",
+    "OR_LOGIN": "Or login",
+    "FIRST_SLIDE_DESC": "For a fit and relaxed pregnancy",
+    "SECOND_SLIDE_DESC": "Log your symptoms and set up your coach to receive workouts for your pregnancy needs",
+    "THIRD_SLIDE_DESC": "Get ready for the new arrival with our digital birth preparation course reimbursed by many insurance companies"
+  },
+  "SIGN_UP": {
+    "ADD_YOUR_DETAILS": "Add your details below to set up an account",
+    "ENTER_PASSWORD": "Enter a password",
+    "IVE_READ_THE": "I've read the",
+    "PRIVACY_POLICY": "privacy policy",
+    "I_ACCEPT_THE": "I accept the",
+    "TERMS_AND_CONDITIONS": "terms & conditions",
+    "AND": "and",
+    "KELEYAS_ADVICE": "Keleya's advice",
+    "CREATE_ACCOUNT": "Create account",
+    "EMAIL_ERROR": "Not quite! Please try again with a valid email address",
+    "PASSWORD_ERROR": "Oops that doesn't work, try again or check out password requirements"
+  },
+  "SIGN_IN": {
+    "WELCOME_BACK": "Welcome back!",
+    "FORGOTTEN_PASSWORD": "Have you forgotten your password?",
+    "LOGIN": "Log in",
+    "EMAIL_ERROR": "Please enter a valid email address"
+  },
+  "NAME": {
+    "ITS_GREAT_THAT_YOURE_HERE": "It's great that you're here! first things first, what should we call you?",
+    "YOUR_NAME": "Your Name",
+    "CONTINUE": "Continue"
+  },
+  "DUE_DATE": {
+    "WHEN_IS_YOUR_BABY_DUE": "When is your baby due"
+  },
+  "WORKOUT": {
+    "HOW_MANY_TIMES_A_WEEK_WANT_TO_BE_ACTIVE": "How many times a week do you want to be active?",
+    "TIMES_A_WEEK": "times a week",
+    "ONCE_A_WEEK": "Once a week"
+  },
+  "SUCCESS_SCREEN": {
+    "GET_NOTIFICATION_TO_BOOST": "Get notifications to boost your motivation",
+    "ALLOW_NOTIFICATIONS": "Allow notifications"
+  },
+  "COMMON": {
+    "CONTINUE": "Continue",
+    "SKIP": "Skip"
+  }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {Image, StyleSheet, Text, View} from 'react-native';
-import {icons, images} from '../assets';
-import {AppButton} from '../components/AppButton';
-import {HeaderImage} from '../components/HeaderImage';
-import {colorPalette, spacing, typography} from '../theme';
+import { useTranslation } from 'react-i18next';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { icons, images } from '../assets';
+import { AppButton } from '../components/AppButton';
+import { HeaderImage } from '../components/HeaderImage';
+import { colorPalette, spacing, typography } from '../theme';
 
 const SuccessScreen: React.FC = () => {
   const {t} = useTranslation();

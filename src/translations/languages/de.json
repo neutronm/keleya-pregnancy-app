@@ -1,50 +1,49 @@
 {
-    "INITIAL_SCREEN": {
-      "GET_STARTED": "Loslegen",
-      "OR_LOGIN": "Oder einloggen",
-      "FIRST_SLIDE_DESC": "Für eine gesunde und entspannte Schwangerschaft",
-      "SECOND_SLIDE_DESC": "Notieren Sie Ihre Symptome und richten Sie Ihren Coach ein, um Workouts für Ihre Schwangerschaftsbedürfnisse zu erhalten",
-      "THIRD_SLIDE_DESC": "Bereiten Sie sich mit unserem digitalen Geburtsvorbereitungskurs auf das neue Familienmitglied vor, der von vielen Versicherungen erstattet wird"
-    },
-    "SIGN_UP": {
-      "ADD_YOUR_DETAILS": "Geben Sie unten Ihre Daten ein, um ein Konto einzurichten",
-      "ENTER_PASSWORD": "Geben Sie ein Passwort ein",
-      "IVE_READ_THE": "Ich habe die",
-      "PRIVACY_POLICY": "Datenschutzrichtlinie",
-      "I_ACCEPT_THE": "Ich akzeptiere die",
-      "TERMS_AND_CONDITIONS": "Nutzungsbedingungen",
-      "AND": "und",
-      "KELEYAS_ADVICE": "Keleyas Ratschlag",
-      "CREATE_ACCOUNT": "Konto erstellen",
-      "EMAIL_ERROR": "Nicht ganz richtig! Bitte versuchen Sie es erneut mit einer gültigen E-Mail-Adresse",
-      "PASSWORD_ERROR": "Hoppla, das funktioniert nicht. Versuchen Sie es erneut oder überprüfen Sie die Passwortanforderungen"
-    },
-    "SIGN_IN": {
-      "WELCOME_BACK": "Willkommen zurück!",
-      "FORGOTTEN_PASSWORD": "Haben Sie Ihr Passwort vergessen?",
-      "LOGIN": "Einloggen",
-      "EMAIL_ERROR": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
-    },
-    "NAME": {
-      "ITS_GREAT_THAT_YOURE_HERE": "Es ist großartig, dass Sie hier sind! Zuerst einmal, wie dürfen wir Sie nennen?",
-      "YOUR_NAME": "Ihr Name",
-      "CONTINUE": "Weiter"
-    },
-    "DUE_DATE": {
-      "WHEN_IS_YOUR_BABY_DUE": "Wann ist Ihr Baby voraussichtlich fällig?"
-    },
-    "WORKOUT": {
-      "HOW_MANY_TIMES_A_WEEK_WANT_TO_BE_ACTIVE": "Wie oft pro Woche möchten Sie aktiv sein?",
-      "TIMES_A_WEEK": "Mal pro Woche",
-      "ONCE_A_WEEK": "Einmal pro Woche"
-    },
-    "SUCCESS_SCREEN": {
-      "GET_NOTIFICATION_TO_BOOST": "Erhalten Sie Benachrichtigungen zur Steigerung Ihrer Motivation",
-      "ALLOW_NOTIFICATIONS": "Benachrichtigungen erlauben"
-    },
-    "COMMON": {
-      "CONTINUE": "Weiter",
-      "SKIP": "Überspringen"
-    }
+  "INITIAL_SCREEN": {
+    "GET_STARTED": "Loslegen",
+    "OR_LOGIN": "Oder einloggen",
+    "FIRST_SLIDE_DESC": "Für eine gesunde und entspannte Schwangerschaft",
+    "SECOND_SLIDE_DESC": "Notieren Sie Ihre Symptome und richten Sie Ihren Coach ein, um Workouts für Ihre Schwangerschaftsbedürfnisse zu erhalten",
+    "THIRD_SLIDE_DESC": "Bereiten Sie sich mit unserem digitalen Geburtsvorbereitungskurs auf das neue Familienmitglied vor, der von vielen Versicherungen erstattet wird"
+  },
+  "SIGN_UP": {
+    "ADD_YOUR_DETAILS": "Geben Sie unten Ihre Daten ein, um ein Konto einzurichten",
+    "ENTER_PASSWORD": "Geben Sie ein Passwort ein",
+    "IVE_READ_THE": "Ich habe die",
+    "PRIVACY_POLICY": "Datenschutzrichtlinie",
+    "I_ACCEPT_THE": "Ich akzeptiere die",
+    "TERMS_AND_CONDITIONS": "Nutzungsbedingungen",
+    "AND": "und",
+    "KELEYAS_ADVICE": "Keleyas Ratschlag",
+    "CREATE_ACCOUNT": "Konto erstellen",
+    "EMAIL_ERROR": "Nicht ganz richtig! Bitte versuchen Sie es erneut mit einer gültigen E-Mail-Adresse",
+    "PASSWORD_ERROR": "Hoppla, das funktioniert nicht. Versuchen Sie es erneut oder überprüfen Sie die Passwortanforderungen"
+  },
+  "SIGN_IN": {
+    "WELCOME_BACK": "Willkommen zurück!",
+    "FORGOTTEN_PASSWORD": "Haben Sie Ihr Passwort vergessen?",
+    "LOGIN": "Einloggen",
+    "EMAIL_ERROR": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  },
+  "NAME": {
+    "ITS_GREAT_THAT_YOURE_HERE": "Es ist großartig, dass Sie hier sind! Zuerst einmal, wie dürfen wir Sie nennen?",
+    "YOUR_NAME": "Ihr Name",
+    "CONTINUE": "Weiter"
+  },
+  "DUE_DATE": {
+    "WHEN_IS_YOUR_BABY_DUE": "Wann ist Ihr Baby voraussichtlich fällig?"
+  },
+  "WORKOUT": {
+    "HOW_MANY_TIMES_A_WEEK_WANT_TO_BE_ACTIVE": "Wie oft pro Woche möchten Sie aktiv sein?",
+    "TIMES_A_WEEK": "Mal pro Woche",
+    "ONCE_A_WEEK": "Einmal pro Woche"
+  },
+  "SUCCESS_SCREEN": {
+    "GET_NOTIFICATION_TO_BOOST": "Erhalten Sie Benachrichtigungen zur Steigerung Ihrer Motivation",
+    "ALLOW_NOTIFICATIONS": "Benachrichtigungen erlauben"
+  },
+  "COMMON": {
+    "CONTINUE": "Weiter",
+    "SKIP": "Überspringen"
   }
-  
+}

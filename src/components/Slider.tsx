@@ -1,6 +1,5 @@
 import React, {PropsWithChildren, useEffect, useState } from 'react';
-import { Text, View , ScrollView, Dimensions, NativeScrollEvent, NativeSyntheticEvent, StyleSheet } from 'react-native';
-import { SliderDots } from './SliderDots';
+import { View , ScrollView, Dimensions, NativeScrollEvent, NativeSyntheticEvent, StyleSheet } from 'react-native';
 
 type SliderProps = {
     onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;

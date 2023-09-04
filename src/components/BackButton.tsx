@@ -1,9 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, Pressable, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet } from "react-native";
 import { spacing } from "../theme";
 import { icons } from "../assets";
-import { useAppNavigation } from "../navigation/useAppNavigation";
 
 export const BackButton: React.FC = ()=>{
     const navigation = useNavigation();

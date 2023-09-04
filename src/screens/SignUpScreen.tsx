@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {AppButton} from '../components/AppButton';
-import {AppTextInput} from '../components/AppTextInput';
+import React, { useEffect, useState } from 'react';
+import { AppButton } from '../components/AppButton';
+import { AppTextInput } from '../components/AppTextInput';
 import {
   View,
   Text,
@@ -9,13 +9,12 @@ import {
   Platform,
   Keyboard,
 } from 'react-native';
-import {Checkbox} from '../components/Checkbox';
-import {colorPalette, spacing, typography} from '../theme';
-import {HeaderImage} from '../components/HeaderImage';
-import {useTranslation} from 'react-i18next';
-import {images} from '../assets';
+import { Checkbox } from '../components/Checkbox';
+import { colorPalette, spacing, typography } from '../theme';
+import { HeaderImage } from '../components/HeaderImage';
+import { useTranslation } from 'react-i18next';
+import { images } from '../assets';
 import { validateEmail, validatePassword } from '../utils';
-import { useNavigation } from '@react-navigation/native';
 import { routes } from '../navigation/routes';
 import { useAppNavigation } from '../navigation/useAppNavigation';
 

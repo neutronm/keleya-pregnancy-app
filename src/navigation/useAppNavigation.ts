@@ -1,5 +1,6 @@
-import { NavigationProp, useNavigation} from '@react-navigation/native'
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 
-import { screensParamList } from './paramList'
+import {screensParamList} from './paramList';
 
-export const useAppNavigation: () => NavigationProp<screensParamList> = useNavigation
+export const useAppNavigation: () => NavigationProp<screensParamList> =
+  useNavigation;

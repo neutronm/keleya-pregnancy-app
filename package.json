@@ -5,9 +5,10 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "lint": "eslint --ext .tsx --ext .ts src/",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "prettier:write": "npx prettier --write **/*.{ts,tsx} && npx prettier --write *.{ts,tsx}"
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^7.5.0",
@@ -34,6 +35,7 @@
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
     "babel-jest": "^29.2.1",
     "detox": "^20.11.4",
     "eslint": "^8.48.0",

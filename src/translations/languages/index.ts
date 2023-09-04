@@ -5,7 +5,7 @@ export default {
   en: {
     translation: translationsEN,
   },
-  de : {
+  de: {
     translation: translationsDE,
-  }
+  },
 };

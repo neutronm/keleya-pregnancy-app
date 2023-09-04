@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
-import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
-import {Slider} from '../components/Slider';
-import {SliderDots} from '../components/SliderDots';
-import {useTranslation} from 'react-i18next';
-import {colorPalette, spacing, typography} from '../theme';
-import {AppButton} from '../components/AppButton';
-import {images} from '../assets';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { Image, ImageSourcePropType, StyleSheet, Text, View } from 'react-native';
+import { Slider } from '../components/Slider';
+import { SliderDots } from '../components/SliderDots';
+import { useTranslation } from 'react-i18next';
+import { colorPalette, spacing, typography } from '../theme';
+import { AppButton } from '../components/AppButton';
+import { images } from '../assets';
 import { routes } from '../navigation/routes';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { useAppNavigation } from '../navigation/useAppNavigation';
@@ -69,7 +68,7 @@ const InitialScreen: React.FC = () => {
         ))}
       </Slider>
       <View style={styles.buttonsContainer}>
-        <AppButton onPress={handleSignUp} text={t('INITIAL_SCREEN.GET_STARTED')} />
+        <AppButton onPress={handleSignUp} text={t('INITIAL_SCREEN.GET_STARTED')} testID='getStartedButton' />
         <AppButton onPress={handleLogin} text={t('INITIAL_SCREEN.OR_LOGIN')} type="textOnly" />
         <SliderDots totalSlides={slides.length} activeIndex={activeSlide} />
       </View>

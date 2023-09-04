@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import {AppButton} from '../components/AppButton';
+import { AppButton } from '../components/AppButton';
 import {
   View,
   Text,
   StyleSheet,
 } from 'react-native';
-import {colorPalette, spacing, typography} from '../theme';
-import {HeaderImage} from '../components/HeaderImage';
+import { colorPalette, spacing, typography } from '../theme';
+import { HeaderImage } from '../components/HeaderImage';
 import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import { useAppDispatch } from '../redux/hooks';
 import { SET_WORKOUT } from '../redux/slices/userSlice';

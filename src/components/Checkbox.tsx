@@ -1,8 +1,9 @@
 import React from 'react';
 import {Image, Pressable, StyleSheet} from 'react-native';
 import {colorPalette} from '../theme';
+import { icons } from '../assets';
 
-const tickIcon = require('../assets/icons/check.png');
+
 
 type CheckboxProps = {
   checked: boolean;
@@ -20,7 +21,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       style={[styles.checkboxContainer, checked ? styles.checked : null]}
       onPress={onPress}
       testID={testID}>
-      {checked && <Image source={tickIcon} style={styles.tick} />}
+      {checked && <Image source={icons.check} style={styles.tick} />}
     </Pressable>
   );
 };

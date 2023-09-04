@@ -22,16 +22,17 @@ const userSlice = createSlice({
       state.name = action.payload;
     },
     SET_EMAIL: (state, action: PayloadAction<string>) => {
-        state.email = action.payload;
-      },
-    SET_DUE_DATE:(state, action: PayloadAction<string>) => {
-        state.dueDate = action.payload;
+      state.email = action.payload;
+    },
+    SET_DUE_DATE: (state, action: PayloadAction<string>) => {
+      state.dueDate = action.payload;
     },
     SET_WORKOUT: (state, action: PayloadAction<string>) => {
-        state.workout = action.payload;
-      },  
+      state.workout = action.payload;
+    },
   },
 });
 
-export const {SET_NAME,SET_EMAIL,SET_DUE_DATE,SET_WORKOUT} = userSlice.actions;
+export const {SET_NAME, SET_EMAIL, SET_DUE_DATE, SET_WORKOUT} =
+  userSlice.actions;
 export const userReducer = userSlice.reducer;

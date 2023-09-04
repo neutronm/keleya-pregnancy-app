@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Image, KeyboardTypeOptions, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import {colorPalette, spacing, typography} from '../theme';
-import { icons, images } from '../assets';
+import { icons} from '../assets';
 
 
 

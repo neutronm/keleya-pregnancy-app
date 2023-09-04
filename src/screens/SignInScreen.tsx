@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {AppButton} from '../components/AppButton';
-import {AppTextInput} from '../components/AppTextInput';
+import React, { useEffect, useState } from 'react';
+import { AppButton } from '../components/AppButton';
+import { AppTextInput } from '../components/AppTextInput';
 import {
   View,
   Text,
@@ -8,12 +8,11 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native';
-import {colorPalette, spacing, typography} from '../theme';
-import {HeaderImage} from '../components/HeaderImage';
-import {useTranslation} from 'react-i18next';
-import {images} from '../assets';
-import {validateEmail} from '../utils';
-import { useNavigation } from '@react-navigation/native';
+import { colorPalette, spacing, typography } from '../theme';
+import { HeaderImage } from '../components/HeaderImage';
+import { useTranslation } from 'react-i18next';
+import { images } from '../assets';
+import { validateEmail } from '../utils';
 import { routes } from '../navigation/routes';
 import { useAppNavigation } from '../navigation/useAppNavigation';
 
