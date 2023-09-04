@@ -1,79 +1,64 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Keleya Pregnancy App
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+This project is a solution to the [coding challenge of Keleya](https://gist.github.com/keleya-engineering/fc641063662b4643aa9b4c5f8d5b65ac#file-keleya-challenge-mobile-react-native-md).
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
-
+### Installation:
+#### 1- clone the repository
+#### 2- cd into the project directory
+#### 3-install the dependencies
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+npm install
+# or
+yarn
+```
+#### 4-build cocoapods project
+```bash
+cd ios
+pod install
+cd ..
+```
+#### 5-run the app
+```bash
+npx react-native run-ios
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
+### Testing:
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+npx detox test --configuration ios.sim.debug
 ```
+A screen-shot testing has been implemented using Detox.
+- the first time the test runs, it takes screen shot of each step and stores it in ``` ./e2e/__image_snapshots_/``` and it needs to be verified manually.
+- if the screenshot allready exists (verified from preveus tests), it compares the 2 screenshots with 1% of difference tollerance.
 
-### For iOS
+### Project Structure
+#### Main folders:
+***assets, components, navigation, redux, screens, theme, translations, utils***
 
-```bash
-# using npm
-npm run ios
+### Navigation:
+***React navigation*** has been used for navigation. everything has been strictly typed. the navigation has been devided into seperate files making it more scalable and maintainable. 
+- routes: all the route names have been decleared and then read from here.
+- screens: it contains an object with all the screens, and their options.
+- paramList: all the screens params types (for the sake of scalability)  that for now they are all Undefined because non of the screens have params.
+- onboardingStack: the main stack navigator but named this way for the sake of scalability (in case of expanding the app it will be a part of main navigator).
+- useAppNavigation hook: a typed version of useNavigation hook.
 
-# OR using Yarn
-yarn ios
-```
+### Managing data:
+***redux*** has been used for managing the state within the app. I have used ***Redux toolkit*** to make things easier and more readable.
+because the app is just onboarding, I decided not to persist the app state to make testings easier.
+#### storing data:
+Since there were no need to store data in the app, Im just gonna name what tools I would have used if I had to store data:
+- non sensitive data: Async storage
+- token and sensitive data: Expo SecureStore
+- app state: Redux Persist
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+### Language
+I have used ***i18next*** for handling translations. the app detects the device language and translates accordingly. app supports English and German.
+since we dont have Switch language option in the app, I decided not to persist the language choice and its dependent on the device language.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### Animations:
+Just like the real keleya app, I have added animation for header image and it fades when keyboard opens. for this purpose I have used ***React Native Reanimated***
 
-## Step 3: Modifying your App
 
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
