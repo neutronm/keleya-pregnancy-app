@@ -90,18 +90,20 @@ const SignUpScreen: React.FC = () => {
             errorText={emailErrorText}
             onChangeText={onEmailChanged}
             placeholder="example@gmail.com"
+            testID="emailInput"
           />
           <AppTextInput
             errorText={passwordErrorText}
             onChangeText={onPasswordChanged}
             placeholder={t('SIGN_UP.ENTER_PASSWORD')}
             secureText
+            testID='passwordInput'
           />
           <View style={styles.checkBoxContainer}>
             <Checkbox
               checked={privacyPolicyChecked}
               onPress={onPrivacyPolicyCheckBoxPressed}
-              testID="hi"
+              testID="privacyPolicyCheckbox"
             />
             <Text style={styles.checkBoxText}>
               {t('SIGN_UP.IVE_READ_THE')}{' '}
@@ -114,7 +116,7 @@ const SignUpScreen: React.FC = () => {
             <Checkbox
               checked={termsChecked}
               onPress={onTermsCheckBoxPressed}
-              testID="hi"
+              testID="termsCheckbox"
             />
             <Text style={styles.checkBoxText}>
               {t('SIGN_UP.I_ACCEPT_THE')}{' '}
@@ -133,6 +135,7 @@ const SignUpScreen: React.FC = () => {
               text={t('SIGN_UP.CREATE_ACCOUNT')}
               disabled={!createAccountButtonEnabled}
               type="solid"
+              testID="signupButton"
             />
           </View>
         </View>

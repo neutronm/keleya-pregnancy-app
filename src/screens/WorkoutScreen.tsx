@@ -77,6 +77,7 @@ const WorkoutScreen: React.FC = () => {
               onPress={onContinuePressed}
               text= {t('COMMON.CONTINUE')}
               type="solid"
+              testID='workoutScreenContinuebtn'
             />
           </View>
         </View>

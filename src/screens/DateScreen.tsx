@@ -63,6 +63,7 @@ const DateScreen: React.FC = () => {
               text= {t('COMMON.CONTINUE')}
               type="solid"
               disabled = {!selectedDate}
+              testID="dateScreenContinuebtn"
             />
           </View>
         </View>

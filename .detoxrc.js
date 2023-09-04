@@ -83,7 +83,7 @@ module.exports = {
   artifacts: {
     plugins: {
       screenshot: {
-        enabled: true,
+        enabled: false,
         keepOnlyFailedTestsArtifacts: false,
         shouldTakeAutomaticSnapshots: false,
         takeWhen: {

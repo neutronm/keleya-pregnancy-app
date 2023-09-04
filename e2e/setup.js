@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment */
 
-const { setDemoMode } = require('./utils');
+import { setDemoMode } from './utils';
 const { configureToMatchImageSnapshot } = require('jest-image-snapshot');
 const fs = require('fs');
 const path = require('path');

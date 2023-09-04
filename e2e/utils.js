@@ -28,8 +28,3 @@ export function expectBitmapsToBeEqual(imagePath, expectedImagePath) {
       execSync('adb shell am broadcast -a com.android.systemui.demo -e command battery -e plugged false -e level 100');
     }
   }
-
-  module.exports = {
-    expectBitmapsToBeEqual,
-    setDemoMode,
-  };

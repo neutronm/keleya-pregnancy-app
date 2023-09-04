@@ -44,13 +44,14 @@ const NameScreen: React.FC = () => {
           <Text style={styles.headerText}>
           {t('NAME.ITS_GREAT_THAT_YOURE_HERE')}
           </Text>
-          <AppTextInput textAlign='center' placeholder={t('NAME.YOUR_NAME')} onChangeText={onNameTextChange} />
+          <AppTextInput testID="nameInput" textAlign='center' placeholder={t('NAME.YOUR_NAME')} onChangeText={onNameTextChange} />
           <View style={styles.buttonContainer}>
             <AppButton
               onPress={onContinueButtonPressed}
               text= {t('NAME.CONTINUE')}
               disabled={name.length === 0}
               type="solid"
+              testID="nameScreenContinueBtn"
             />
           </View>
         </View>
