@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {AppButton} from '../components/AppButton';
 import {AppTextInput} from '../components/AppTextInput';
 import {
@@ -7,48 +7,132 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   Platform,
+  Keyboard,
 } from 'react-native';
 import {Checkbox} from '../components/Checkbox';
 import {colorPalette, spacing, typography} from '../theme';
 import {HeaderImage} from '../components/HeaderImage';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
+import {images} from '../assets';
+import { validateEmail, validatePassword } from '../utils';
+import { useNavigation } from '@react-navigation/native';
+import { routes } from '../navigation/routes';
+import { useAppNavigation } from '../navigation/useAppNavigation';
 
 const SignUpScreen: React.FC = () => {
-
   const {t} = useTranslation();
+  const navigation = useAppNavigation();
+  const [createAccountButtonEnabled, setCreateAccountButtonEnabled] =
+    useState<boolean>(false);
+  const [privacyPolicyChecked, setPrivacyPolicyChecked] =
+    useState<boolean>(false);
+  const [termsChecked, setTermsChecked] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [emailErrorText, setEmailErrorText] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [passwordErrorText, setPasswordErrorText] = useState<string>('');
+
+  const onPrivacyPolicyCheckBoxPressed = () => {
+    setPrivacyPolicyChecked(!privacyPolicyChecked);
+    Keyboard.dismiss();
+  };
+  const onTermsCheckBoxPressed = () => {
+    setTermsChecked(!termsChecked);
+    Keyboard.dismiss();
+  };
+  const onEmailChanged = (text: string) => {
+    const emailIsValid = validateEmail(text);
+    if(text.length > 0){
+      if(!emailIsValid){
+        setEmailErrorText(t('SIGN_UP.EMAIL_ERROR'))
+      }else{
+        setEmailErrorText('')
+      }
+    }else{
+      setEmailErrorText('');
+    }
+    setEmail(text);
+  };
+  const onPasswordChanged = (text: string) => {
+    const passwordIsValid = validatePassword(text);
+    if(text.length > 0){
+      if(!passwordIsValid){
+        setPasswordErrorText(t('SIGN_UP.PASSWORD_ERROR'))
+      }else{
+        setPasswordErrorText('')
+      }
+    }else{
+      setPasswordErrorText('')
+    }
+    setPassword(text);
+  };
+
+  const onCreateAccountPressed = ()=>{
+    navigation.navigate(routes.NameScreen);
+  }
+
+  useEffect(()=>{
+    if(validateEmail(email) && validatePassword(password)
+    && privacyPolicyChecked && termsChecked){
+      setCreateAccountButtonEnabled(true)
+    }else{
+      setCreateAccountButtonEnabled(false)
+    }
+  },[email, password, privacyPolicyChecked, termsChecked])
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
       <View style={styles.wrapper}>
-        <HeaderImage
-          source={require('../assets/images/authentication-background-image.jpg')}
-        />
+        <HeaderImage source={images.authentication_background} />
         <View style={styles.contentContainer}>
-          <Text style={styles.headerText}>
-            {t('SIGN_UP.ADD_YOUR_DETAILS')}
-          </Text>
-          <AppTextInput placeholder="example@gmail.com" />
-          <AppTextInput placeholder={t('SIGN_UP.ENTER_PASSWORD')} secureText />
+          <Text style={styles.headerText}>{t('SIGN_UP.ADD_YOUR_DETAILS')}</Text>
+          <AppTextInput
+            errorText={emailErrorText}
+            onChangeText={onEmailChanged}
+            placeholder="example@gmail.com"
+          />
+          <AppTextInput
+            errorText={passwordErrorText}
+            onChangeText={onPasswordChanged}
+            placeholder={t('SIGN_UP.ENTER_PASSWORD')}
+            secureText
+          />
           <View style={styles.checkBoxContainer}>
-            <Checkbox checked={false} onPress={() => {}} testID="hi" />
+            <Checkbox
+              checked={privacyPolicyChecked}
+              onPress={onPrivacyPolicyCheckBoxPressed}
+              testID="hi"
+            />
             <Text style={styles.checkBoxText}>
-            {t('SIGN_UP.IVE_READ_THE')}{' '}
-              <Text style={styles.checkBoxBoldText}>{t('SIGN_UP.PRIVACY_POLICY')}</Text>
+              {t('SIGN_UP.IVE_READ_THE')}{' '}
+              <Text style={styles.checkBoxBoldText}>
+                {t('SIGN_UP.PRIVACY_POLICY')}
+              </Text>
             </Text>
           </View>
           <View style={styles.checkBoxContainer}>
-            <Checkbox checked={false} onPress={() => {}} testID="hi" />
+            <Checkbox
+              checked={termsChecked}
+              onPress={onTermsCheckBoxPressed}
+              testID="hi"
+            />
             <Text style={styles.checkBoxText}>
-            {t('SIGN_UP.I_ACCEPT_THE')}{' '}
-              <Text style={styles.checkBoxBoldText}>{t('SIGN_UP.TERMS_AND_CONDITIONS')} </Text>
-              {t('SIGN_UP.AND')} <Text style={styles.checkBoxBoldText}>{t('SIGN_UP.KELEYAS_ADVICE')}</Text>
+              {t('SIGN_UP.I_ACCEPT_THE')}{' '}
+              <Text style={styles.checkBoxBoldText}>
+                {t('SIGN_UP.TERMS_AND_CONDITIONS')}{' '}
+              </Text>
+              {t('SIGN_UP.AND')}{' '}
+              <Text style={styles.checkBoxBoldText}>
+                {t('SIGN_UP.KELEYAS_ADVICE')}
+              </Text>
             </Text>
           </View>
           <View style={styles.buttonContainer}>
             <AppButton
-              onPress={() => {}}
+              onPress={onCreateAccountPressed}
               text={t('SIGN_UP.CREATE_ACCOUNT')}
-              disabled
+              disabled={!createAccountButtonEnabled}
               type="solid"
             />
           </View>
@@ -59,10 +143,10 @@ const SignUpScreen: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  wrapper:{
+  wrapper: {
     height: '100%',
     backgroundColor: colorPalette.WHITE,
-  }, 
+  },
   contentContainer: {
     flex: 1,
     paddingHorizontal: spacing.xl,
@@ -82,8 +166,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   buttonContainer: {
-    flex:1,
-    justifyContent:'flex-end',
+    flex: 1,
+    justifyContent: 'flex-end',
     marginBottom: 30,
   },
 });

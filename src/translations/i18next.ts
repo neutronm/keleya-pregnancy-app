@@ -12,17 +12,21 @@ const getDeviceLocale = (): string => {
     } else {
       locale = NativeModules.I18nManager.localeIdentifier;
     }
-    return locale;
+
+    const [language] = locale.replace('_', '-').split('-'); // returned device locale can have '_' or '-'
+    return language;
   };
 
+  // since we dont have an option to change language inside the app, I did not implement caching. 
+  // but it can be implemented using Async Storage
 
   i18n
   .use(initReactI18next)
   .init({
     compatibilityJSON: 'v3',
-    fallbackLng: 'en_US',
+    fallbackLng: 'en',
     lng: getDeviceLocale(),
-    resources,
+    resources: resources,
     debug:true,
     interpolation: {
         escapeValue: false,

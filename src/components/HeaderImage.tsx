@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { ImageURISource, StyleSheet, Keyboard, Platform} from 'react-native';
+import { ImageURISource, StyleSheet, Keyboard, Platform, Dimensions} from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 type HeaderImageProps = {
     source: ImageURISource,
     isBackground?:boolean,
 }
-
+const screenWidth = Dimensions.get('window').width;
 export const HeaderImage: React.FC<HeaderImageProps> = ({source,isBackground})=>{
 
     const imageOpacity = useSharedValue(1);
@@ -41,7 +41,7 @@ export const HeaderImage: React.FC<HeaderImageProps> = ({source,isBackground})=>
 const styles = StyleSheet.create({
     headerImage:{
         width: '100%',
-        resizeMode:'contain',
+        resizeMode:'cover',
     },
     isBackground:{
         position: 'absolute',

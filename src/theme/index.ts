@@ -7,6 +7,9 @@ export const colorPalette={
     GREYISH_BROWN: '#4a4a4a',
     WARM_GREY: '#9b9b9b',
     BUBBLE_GUM: '#e97db5',
+    DANGER: '#a30b0b',
+    GREY:'#e3e3e3',
+    BLUE: '#004bd6',
   };
 
 
@@ -16,6 +19,7 @@ export const spacing = {
   m: 16,
   l: 24,
   xl: 40,
+  xxl: 90,
 }
 
 
@@ -28,6 +32,9 @@ export const typography = StyleSheet.create({
     fontWeight: '700',
   },
   TEXT_INPUT:{
+    fontSize: 18,
+  },
+  BODY:{
     fontSize: 18,
   },
   HEADING:{

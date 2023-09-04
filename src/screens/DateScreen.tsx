@@ -1,44 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {AppButton} from '../components/AppButton';
-import {AppTextInput} from '../components/AppTextInput';
 import {
   View,
   Text,
-  KeyboardAvoidingView,
   StyleSheet,
-  Platform,
 } from 'react-native';
 import {colorPalette, spacing, typography} from '../theme';
 import {HeaderImage} from '../components/HeaderImage';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
 import { routes } from '../navigation/routes';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import RNDateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import { SET_DUE_DATE } from '../redux/slices/userSlice';
+import { images } from '../assets';
+import { useAppNavigation } from '../navigation/useAppNavigation';
 
 const DateScreen: React.FC = () => {
   const {t} = useTranslation();
-  const navigation = useNavigation<any>();
+  const navigation = useAppNavigation();
+  const dispatch = useAppDispatch();
+  const name = useAppSelector((state)=> state.userReducer.name);
+  const [selectedDate , setSelectedDate] = useState<Date|undefined>();
+  const minDate = new Date(); // the minimum date should be the current date
+  const maxDate = new Date();
+  maxDate.setMonth(maxDate.getMonth() + 10); // we want the max date to be 10 months from now
+  const onDateChange = (event: DateTimePickerEvent, date: Date | undefined)=>{
+    if(date){
+      setSelectedDate(date);
+    }
+  }
+
+  const onContinuePressed = ()=>{
+    if(selectedDate){
+      dispatch(SET_DUE_DATE(selectedDate.toISOString())); //the date is stored in string because Date is not serializable
+      navigation.navigate(routes.WorkoutScreen);
+    }
+  }
+
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
       <View style={styles.wrapper}>
         <HeaderImage
-          source={require('../assets/images/due-date-background-image.jpg')}
+          source={images.due_date_background_image}
         />
         <View style={styles.contentContainer}>
           <Text style={styles.headerText}>
-          {t('DUE_DATE.WHEN_IS_YOUR_BABY_DUE')}{','} sam?
+          {t('DUE_DATE.WHEN_IS_YOUR_BABY_DUE')}{', '}{name}?
           </Text>
-          <AppTextInput textAlign='center' placeholder={t('NAME.YOUR_NAME')} />
+          <View style={styles.datePickerContainer}>
+          <RNDateTimePicker
+          testID="dateTimePicker"
+          value={selectedDate ? selectedDate : new Date()}
+          mode={'date'}
+          display="default"
+          minimumDate={minDate}
+          maximumDate={maxDate}
+          onChange={onDateChange}
+        />
+        </View>
           <View style={styles.buttonContainer}>
             <AppButton
-              onPress={() => {navigation.navigate(routes.WorkoutScreen)}}
+              onPress={onContinuePressed}
               text= {t('COMMON.CONTINUE')}
               type="solid"
+              disabled = {!selectedDate}
             />
           </View>
         </View>
       </View>
-    </KeyboardAvoidingView>
   );
 };
 
@@ -61,10 +90,9 @@ const styles = StyleSheet.create({
     justifyContent:'flex-end',
     marginBottom: 30,
   },
-  forgetPasswordText:{
-    textAlign:'center',
-    marginBottom: spacing.m,
-    ...typography.TEXT_INPUT
+  datePickerContainer:{
+    alignSelf:'center',
+    marginTop: spacing.l,
   }
 });
 

@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: spacing.s,
-    
     borderRadius: 6,
   },
   containerDisabled: {

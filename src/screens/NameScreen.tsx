@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {AppButton} from '../components/AppButton';
 import {AppTextInput} from '../components/AppTextInput';
 import {
@@ -7,30 +7,50 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   Platform,
+  Keyboard,
 } from 'react-native';
 import {colorPalette, spacing, typography} from '../theme';
 import {HeaderImage} from '../components/HeaderImage';
 import { useTranslation } from 'react-i18next';
+import { images } from '../assets';
+import { useNavigation } from '@react-navigation/native';
+import { routes } from '../navigation/routes';
+import { SET_NAME } from '../redux/slices/userSlice';
+import { useAppDispatch } from '../redux/hooks';
+import { useAppNavigation } from '../navigation/useAppNavigation';
 
 const NameScreen: React.FC = () => {
   const {t} = useTranslation();
+  const navigation = useAppNavigation();
+  const [name, setName] = useState<string>('');
+  const dispatch = useAppDispatch();
+  const onNameTextChange = (text:string)=>{
+    setName(text);
+  }
+
+  const onContinueButtonPressed = ()=>{
+    Keyboard.dismiss();
+    dispatch(SET_NAME(name));
+    navigation.navigate(routes.DateScreen);
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
       <View style={styles.wrapper}>
         <HeaderImage
-          source={require('../assets/images/couch_smile.jpg')}
+          source={images.couch_smile}
         />
         <View style={styles.contentContainer}>
           <Text style={styles.headerText}>
           {t('NAME.ITS_GREAT_THAT_YOURE_HERE')}
           </Text>
-          <AppTextInput textAlign='center' placeholder={t('NAME.YOUR_NAME')} />
+          <AppTextInput textAlign='center' placeholder={t('NAME.YOUR_NAME')} onChangeText={onNameTextChange} />
           <View style={styles.buttonContainer}>
             <AppButton
-              onPress={() => {}}
+              onPress={onContinueButtonPressed}
               text= {t('NAME.CONTINUE')}
-              disabled
+              disabled={name.length === 0}
               type="solid"
             />
           </View>
@@ -43,6 +63,7 @@ const NameScreen: React.FC = () => {
 const styles = StyleSheet.create({
   wrapper:{
     height: '100%',
+    width: '100%',
     backgroundColor: colorPalette.WHITE,
   }, 
   contentContainer: {
@@ -59,11 +80,6 @@ const styles = StyleSheet.create({
     justifyContent:'flex-end',
     marginBottom: 30,
   },
-  forgetPasswordText:{
-    textAlign:'center',
-    marginBottom: spacing.m,
-    ...typography.TEXT_INPUT
-  }
 });
 
 export default NameScreen;

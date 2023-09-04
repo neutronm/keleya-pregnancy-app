@@ -1,51 +1,87 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {AppButton} from '../components/AppButton';
-import {AppTextInput} from '../components/AppTextInput';
 import {
   View,
   Text,
-  KeyboardAvoidingView,
   StyleSheet,
-  Platform,
 } from 'react-native';
 import {colorPalette, spacing, typography} from '../theme';
 import {HeaderImage} from '../components/HeaderImage';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
-import { BackButton } from '../components/BackButton';
-import type { NativeStackNavigationOptions } from '@react-navigation/native-stack'
-import { headerWithBackButtonWithoutTitleOption } from '../navigation/options';
+import { Picker } from '@react-native-picker/picker';
+import { useAppDispatch } from '../redux/hooks';
+import { SET_WORKOUT } from '../redux/slices/userSlice';
+import { routes } from '../navigation/routes';
+import { images } from '../assets';
+import { useAppNavigation } from '../navigation/useAppNavigation';
+
+type TimeOption = {
+  label: string;
+  value: string;
+};
 
 const WorkoutScreen: React.FC = () => {
   const {t} = useTranslation();
-  const navigation = useNavigation();
+  const navigation = useAppNavigation();
+  const dispatch = useAppDispatch();
+  const [workoutTimeOptions, setWorkoutTimeOptions] = useState<TimeOption[]>([]); 
+  const [selectedTimeOption, setSelectedTimeOption] = useState<string>('3')
+  useEffect(()=>{
+    // generating workout time options here instead of a constant
+    // because it should be translatable
+    const workoutOptions:TimeOption[] = []
+    workoutOptions.push({label: t('WORKOUT.ONCE_A_WEEK'), value: '1'})
+    for(let i=2; i<= 7; i++){
+      workoutOptions.push({label: `${i} ${t('WORKOUT.TIMES_A_WEEK')}`, value: `${i}`})
+    }
+    setWorkoutTimeOptions(workoutOptions);
+  },[])
 
-  useEffect(() => {
-    navigation.setOptions(headerWithBackButtonWithoutTitleOption);
-  }, []);
+  const onTimePickerValueChange = (value:string)=>{
+    setSelectedTimeOption(value);
+  }
+
+  const onContinuePressed = ()=>{
+    dispatch(SET_WORKOUT(selectedTimeOption));
+    navigation.navigate(routes.SuccessScreen);
+  }
+
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
       <View style={styles.wrapper}>
         <HeaderImage
-          source={require('../assets/images/workout-goal-background-image.jpg')}
+          source={images.workout_goal_background_image}
           isBackground
         />
-        <View style={styles.contentContainer}>
+        <View style={styles.contentWrapper}>
+          <View style={styles.spaceBetweenContentContainer}>
           <Text style={styles.headerText}>
-          {t('DUE_DATE.WHEN_IS_YOUR_BABY_DUE')}{','} sam?
+          {t('WORKOUT.HOW_MANY_TIMES_A_WEEK_WANT_TO_BE_ACTIVE')}
           </Text>
-          <AppTextInput textAlign='center' placeholder={t('NAME.YOUR_NAME')} />
+          <Picker
+          testID="timePicker"
+          style={styles.timePicker}
+          selectedValue={selectedTimeOption}
+          onValueChange={onTimePickerValueChange}>
+          {workoutTimeOptions.map(option => (
+            <Picker.Item
+              testID={'label'}
+              key={option.value}
+              label={option.label}
+              value={option.value}
+            />
+          ))}
+        </Picker>
+          </View>
           <View style={styles.buttonContainer}>
             <AppButton
-              onPress={() => {}}
+              onPress={onContinuePressed}
               text= {t('COMMON.CONTINUE')}
               type="solid"
             />
           </View>
         </View>
       </View>
-    </KeyboardAvoidingView>
   );
 };
 
@@ -54,10 +90,16 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: colorPalette.WHITE,
   }, 
-  contentContainer: {
+  contentWrapper: {
     flex: 1,
     paddingHorizontal: spacing.xl,
   },
+  spaceBetweenContentContainer:{
+    justifyContent:'space-between',
+    marginTop: spacing.xxl,
+    
+    flexGrow:6,
+    },
   headerText: {
     textAlign: 'center',
     color: colorPalette.GREYISH_BROWN ,
@@ -68,10 +110,8 @@ const styles = StyleSheet.create({
     justifyContent:'flex-end',
     marginBottom: 30,
   },
-  forgetPasswordText:{
-    textAlign:'center',
-    marginBottom: spacing.m,
-    ...typography.TEXT_INPUT
+  timePicker:{
+
   }
 });
 

@@ -2,10 +2,10 @@ import translationsEN from './en.json';
 import translationsDE from './de.json';
 
 export default {
-  en_US: {
+  en: {
     translation: translationsEN,
   },
-  de_DE : {
+  de : {
     translation: translationsDE,
   }
 };
