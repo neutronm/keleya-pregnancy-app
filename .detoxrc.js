@@ -79,5 +79,20 @@ module.exports = {
       device: 'emulator',
       app: 'android.release'
     }
-  }
+  },
+  artifacts: {
+    plugins: {
+      screenshot: {
+        enabled: true,
+        keepOnlyFailedTestsArtifacts: false,
+        shouldTakeAutomaticSnapshots: false,
+        takeWhen: {
+          appNotReady: false,
+          testDone: false,
+          testStart: false,
+        },
+      },
+      uiHierarchy: 'disabled',
+    },
+  },
 };
