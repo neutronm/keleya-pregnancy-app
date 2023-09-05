@@ -26,23 +26,24 @@ npx react-native run-ios
 ```
 
 ### Testing:
+To run tests, use the following command:
 ```bash
 npx detox test --configuration ios.sim.debug
 ```
-A screen-shot testing has been implemented using Detox.
-- the first time the test runs, it takes screen shot of each step and stores it in ``` ./e2e/__image_snapshots_/``` and it needs to be verified manually.
-- if the screenshot allready exists (verified from preveus tests), it compares the 2 screenshots with 1% of difference tollerance.
+Screen-shot testing has been implemented using Detox:
+- The first time the test runs, it captures a screenshot of each step and stores it in ``` ./e2e/__image_snapshots_/```, which needs manual verification.
+- If the screenshot already exists (verified from previous tests), it compares the two screenshots with a 1% difference tolerance.
 
 ### Project Structure
 #### Main folders:
 ***assets, components, navigation, redux, screens, theme, translations, utils***
 
 ### Navigation:
-***React navigation*** has been used for navigation. everything has been strictly typed. the navigation has been devided into seperate files making it more scalable and maintainable. 
+***React navigation*** has been used for navigation. everything has been strictly typed and the navigation has been devided into seperate files making it more scalable and maintainable. 
 - routes: all the route names have been decleared and then read from here.
 - screens: it contains an object with all the screens, and their options.
-- paramList: all the screens params types (for the sake of scalability)  that for now they are all Undefined because non of the screens have params.
-- onboardingStack: the main stack navigator but named this way for the sake of scalability (in case of expanding the app it will be a part of main navigator).
+- paramList: All the screens' parameter types (for scalability) are defined here; for now, they are all set to Undefined because none of the screens have parameters.
+- onboardingStack: The main stack navigator, but named this way for scalability (in case of expanding the app, it will be a part of the main navigator).
 - useAppNavigation hook: a typed version of useNavigation hook.
 
 ### Managing data:
